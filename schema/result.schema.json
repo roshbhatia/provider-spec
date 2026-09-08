@@ -1,0 +1,41 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "description": "Result is the final frame a provider emits.",
+    "additionalProperties": false,
+    "properties": {
+        "kind": {
+            "const": "result"
+        },
+        "message": {
+            "type": "string"
+        },
+        "metadata": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            }
+        },
+        "output": true,
+        "requestId": {
+            "type": "string",
+            "minLength": 1
+        },
+        "status": {
+            "enum": [
+                "ok",
+                "declined",
+                "error"
+            ]
+        },
+        "version": {
+            "const": "provider/v1"
+        }
+    },
+    "required": [
+        "kind",
+        "requestId",
+        "status",
+        "version"
+    ]
+}

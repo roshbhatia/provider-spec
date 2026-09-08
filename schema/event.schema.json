@@ -1,0 +1,32 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "description": "Event is a streaming frame a provider emits before the final result.",
+    "additionalProperties": false,
+    "properties": {
+        "data": true,
+        "event": {
+            "type": "string",
+            "minLength": 1
+        },
+        "kind": {
+            "const": "event"
+        },
+        "message": {
+            "type": "string"
+        },
+        "requestId": {
+            "type": "string",
+            "minLength": 1
+        },
+        "version": {
+            "const": "provider/v1"
+        }
+    },
+    "required": [
+        "event",
+        "kind",
+        "requestId",
+        "version"
+    ]
+}

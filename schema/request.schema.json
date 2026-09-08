@@ -1,0 +1,36 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "description": "Request is the single frame a caller writes to provider standard input.",
+    "additionalProperties": false,
+    "properties": {
+        "capability": {
+            "type": "string",
+            "minLength": 1
+        },
+        "context": {
+            "type": "object",
+            "additionalProperties": true
+        },
+        "input": true,
+        "kind": {
+            "const": "request"
+        },
+        "operation": {
+            "type": "string"
+        },
+        "requestId": {
+            "type": "string",
+            "minLength": 1
+        },
+        "version": {
+            "const": "provider/v1"
+        }
+    },
+    "required": [
+        "capability",
+        "kind",
+        "requestId",
+        "version"
+    ]
+}
