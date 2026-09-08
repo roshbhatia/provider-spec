@@ -1,0 +1,1 @@
+{"version":"provider/v1","kind":"request","requestId":"req-1","capability":"activity.read","operation":"list","context":{"cwd":"/work","depth":2},"input":{"since":"2h","session":null}}
