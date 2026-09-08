@@ -11,6 +11,9 @@ fixtures are the executable examples.
   with an explicit `...` and only with a reason in a comment
 - No `anyOf` or `oneOf` in the export. Prefer regex, `const`, `enum`,
   `minLength`, and `$ref`. Check the export after every CUE edit
+- Pattern keys (`[=~"..."]: value`) take a literal regex. A key written as a
+  definition reference (`[#Name]: value`) exports as `additionalProperties:
+  true` with no error. `#Name` and `#EnvName` are for value positions only
 - `#Duration` is the single duration grammar. Do not reintroduce
   `time.Duration`; it exports as a bare string and drops the constraint
 - `struct.MinFields` does not export and also drops `additionalProperties:

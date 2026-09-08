@@ -40,7 +40,7 @@ import "strings"
 	// command is the executable and its fixed leading arguments. It always
 	// runs directly; no shell is inserted.
 	command!: [string & strings.MinRunes(1), ...string & strings.MinRunes(1)]
-	actions!: [#Name]: #Action
+	actions!: [=~"^[a-z][a-z0-9._-]*$"]: #Action
 	requires?: #Requirements
 	defaults?: #Defaults
 }
@@ -50,7 +50,7 @@ import "strings"
 #Action: {
 	description!: string & strings.MinRunes(1)
 	argv?: [...string]
-	env?: [#EnvName]: string
+	env?: [=~"^[A-Za-z_][A-Za-z0-9_]*$"]: string
 }
 
 // Requirements declares dependencies which must exist before invocation.
