@@ -25,6 +25,13 @@ fixtures are the executable examples.
   or `result-` filename prefix; the check picks the definition from it
 - Bump `VERSION` and tag `v<VERSION>` for any change consumers can observe.
   Consumers pin the tag
+- A consumer narrows action names with a per-field hidden check, not a closed
+  struct. `actions: {[#ActionName]: #Action}` unified with the spec's pattern
+  key widens the accepted set; `[name=string]: {_ok: name & #ActionName}`
+  rejects a foreign name (traces does this)
+- "At least one of" is not a disjunction of `!:` branches; that stays an
+  incomplete value. Use a guarded list comprehension over the keys (changes
+  does this)
 
 ## Commands
 
